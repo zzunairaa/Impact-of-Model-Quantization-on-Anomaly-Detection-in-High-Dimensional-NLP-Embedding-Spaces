@@ -99,6 +99,8 @@ The project uses a phishing email detection dataset containing:
 
 ### Embedding Representations
 
+**Note**: Precomputed embedding files are **not included** in this repository due to their large size (~500MB+). Users must generate embeddings using the provided `convert_embeddings.ipynb` notebook.
+
 Two types of precomputed, L2-normalized embeddings are used:
 
 1. **BGE-large-en-v1.5** (dimension = 1024)
@@ -355,5 +357,6 @@ This research project was conducted as part of an investigation into the robustn
 ---
 
 **Note**: This project focuses on numerical precision effects rather than hardware benchmarking. Simulated quantization (INT4/INT2) isolates precision loss while maintaining computational stability for controlled analysis.
+
 
 
