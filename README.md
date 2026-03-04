@@ -49,10 +49,10 @@ $$
 
 where:
 
-- \(s_{ham}\) = anomaly scores for normal emails  
-- \(\tau\) = decision threshold
+- `s_ham` = anomaly scores for normal emails  
+- `tau` = decision threshold  
 
-Emails with scores greater than \( \tau \) are flagged as anomalies.
+Emails with scores greater than `tau` are flagged as anomalies.
 
 ## Models Implemented
 
@@ -355,4 +355,5 @@ This research project was conducted as part of an investigation into the robustn
 ---
 
 **Note**: This project focuses on numerical precision effects rather than hardware benchmarking. Simulated quantization (INT4/INT2) isolates precision loss while maintaining computational stability for controlled analysis.
+
 
