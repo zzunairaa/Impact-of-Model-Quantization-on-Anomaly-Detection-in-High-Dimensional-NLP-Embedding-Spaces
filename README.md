@@ -37,15 +37,22 @@ This project aims to answer the following research questions:
 
 This reflects a realistic anomaly detection setting where anomaly labels are not available during training.
 
-### Deployment Constraint: Fixed-FPR = 5%
+### Deployment Constraint: Fixed FPR = 5%
 
-To simulate a realistic industrial deployment scenario, we impose a **Fixed False Positive Rate (FPR) = 5%** on normal (ham) training data. The anomaly threshold is selected as the 95th percentile of ham scores:
+To simulate a realistic industrial deployment scenario, we impose a Fixed False Positive Rate (FPR) of **5%** on normal (ham) training data.
 
-$$\tau = \operatorname{quantile}\left(s_{\text{ham}},\, 0.95\right)$$
+The anomaly detection threshold is defined as the **95th percentile of anomaly scores** computed on ham samples:
 
-We evaluate two scenarios:
-1. **Same-threshold evaluation**: Apply the FP32 threshold to quantized models (tests calibration break risk)
-2. **Recalibrated-threshold evaluation**: Recompute the threshold per quantized model using the same fixed-FPR constraint (tests performance recoverability after calibration)
+$$
+\tau = quantile(s_{ham}, 0.95)
+$$
+
+where:
+
+- \(s_{ham}\) = anomaly scores for normal emails  
+- \(\tau\) = decision threshold
+
+Emails with scores greater than \( \tau \) are flagged as anomalies.
 
 ## Models Implemented
 
@@ -348,3 +355,4 @@ This research project was conducted as part of an investigation into the robustn
 ---
 
 **Note**: This project focuses on numerical precision effects rather than hardware benchmarking. Simulated quantization (INT4/INT2) isolates precision loss while maintaining computational stability for controlled analysis.
+
